@@ -1,6 +1,7 @@
 package persistence;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
+
 
 @Table(name = "person")
 @Entity

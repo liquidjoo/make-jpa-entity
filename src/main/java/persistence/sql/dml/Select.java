@@ -1,11 +1,10 @@
 package persistence.sql.dml;
 
-import org.springframework.util.StringUtils;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
 import java.lang.reflect.Field;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -94,7 +93,7 @@ public class Select {
                         continue;
                     }
 
-                    if (StringUtils.hasText(column.name())) {
+                    if (!Objects.isNull(column.name())) {
                         columns.put(column.name(), "?");
                         continue;
                     }
@@ -105,7 +104,7 @@ public class Select {
 
 
                 Column column = field.getAnnotation(Column.class);
-                if (StringUtils.hasText(column.name())) {
+                if (!Objects.isNull(column.name())) {
                     columns.put(column.name(), "?");
                     continue;
                 }

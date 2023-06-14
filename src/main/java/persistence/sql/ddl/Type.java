@@ -1,6 +1,5 @@
 package persistence.sql.ddl;
 
-import org.hibernate.type.descriptor.sql.JdbcTypeJavaClassMappings;
 import persistence.sql.dialect.H2Dialect;
 
 

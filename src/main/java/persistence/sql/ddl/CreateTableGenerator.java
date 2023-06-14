@@ -1,8 +1,7 @@
 package persistence.sql.ddl;
 
-import org.springframework.util.StringUtils;
+import jakarta.persistence.*;
 
-import javax.persistence.*;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -65,7 +64,7 @@ public class CreateTableGenerator {
                     continue;
                 }
 
-                if (StringUtils.hasText(column.name())) {
+                if (!Objects.isNull(column.name())) {
                     stringBuilder.append(getColumnNameBySingleQuote(column.name()) + " " + type.getTypeName(field.getType()));
                     types.add(stringBuilder.toString());
                     continue;
