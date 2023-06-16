@@ -15,7 +15,7 @@ public abstract class Dialect {
         final Integer integer = Integer.valueOf(typeCode);
         final String result = defaults.get(integer);
         if (result == null) {
-            throw new IllegalArgumentException("No Dialect mapping for JDBC type: " + typeCode);
+            throw new IllegalArgumentException("No Dialect mapping for type: " + typeCode);
         }
         return result;
     }

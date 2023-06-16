@@ -5,8 +5,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 import java.lang.reflect.Field;
-import java.util.LinkedHashMap;
-import java.util.Map;
 
 public class Delete {
 
@@ -17,18 +15,17 @@ public class Delete {
     }
 
     private static class CustomDeleteQueryBuilder {
-        private Map<String, String> columns = new LinkedHashMap<>();
 
         public String translatorDeleteQuery(Class<?> clazz) {
             validateEntityAnnotation(clazz);
             StringBuilder query = new StringBuilder();
-            query.append(deleteClause(clazz));
+            query.append(deleteClause());
             query.append(fromClause(clazz));
             query.append(whereClause(clazz));
             return query.toString();
         }
 
-        private String deleteClause(Class<?> clazz) {
+        private String deleteClause() {
             return "delete ";
         }
 
